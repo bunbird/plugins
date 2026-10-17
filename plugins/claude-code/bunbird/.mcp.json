@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "bunbird-build": {
+      "type": "http",
+      "url": "https://mcp.bunbird.com/build"
+    },
+    "bunbird": {
+      "type": "http",
+      "url": "https://mcp.bunbird.com/mcp"
+    }
+  }
+}

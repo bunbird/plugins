@@ -1,0 +1,30 @@
+{
+  "name": "bunbird",
+  "owner": {
+    "name": "Bunbird",
+    "url": "https://bunbird.com"
+  },
+  "description": "Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers.",
+  "plugins": [
+    {
+      "name": "bunbird",
+      "source": "./plugins/claude-code/bunbird",
+      "description": "Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers.",
+      "author": {
+        "name": "Bunbird",
+        "url": "https://bunbird.com"
+      },
+      "homepage": "https://bunbird.com",
+      "category": "Developer Tools",
+      "keywords": [
+        "bunbird",
+        "mcp",
+        "mcp-server",
+        "web-apps",
+        "hosting",
+        "agent-skill",
+        "ai-agent"
+      ]
+    }
+  ]
+}

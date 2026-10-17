@@ -1,0 +1,20 @@
+{
+  "name": "bunbird",
+  "interface": {
+    "displayName": "Bunbird"
+  },
+  "plugins": [
+    {
+      "name": "bunbird",
+      "source": {
+        "source": "local",
+        "path": "./plugins/codex/bunbird"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

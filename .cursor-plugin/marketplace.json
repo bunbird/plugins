@@ -1,0 +1,17 @@
+{
+  "name": "bunbird",
+  "owner": {
+    "name": "Bunbird",
+    "url": "https://bunbird.com"
+  },
+  "metadata": {
+    "description": "Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers."
+  },
+  "plugins": [
+    {
+      "name": "bunbird",
+      "source": "./plugins/cursor/bunbird",
+      "description": "Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "bunbird",
+  "version": "0.1.0",
+  "description": "Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "bunbird-build": {
+      "httpUrl": "https://mcp.bunbird.com/build"
+    },
+    "bunbird": {
+      "httpUrl": "https://mcp.bunbird.com/mcp"
+    }
+  }
+}
