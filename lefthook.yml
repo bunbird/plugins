@@ -1,0 +1,6 @@
+# Generated files must match canonical/. A commit that edits one by hand, or
+# changes canonical/ without regenerating, stops here.
+pre-commit:
+  commands:
+    drift:
+      run: node scripts/build.mjs --check

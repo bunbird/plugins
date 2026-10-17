@@ -49,7 +49,9 @@ Cursor: add this repository as a plugin source and install `bunbird`.
 2. `node scripts/build.mjs`
 3. `node scripts/build.mjs --check` (fails on any drift, or any missing or extra file in `plugins/`)
 
-`npm run build` and `npm run check` do the same. Node 20 or newer, no dependencies. The org runs checks locally, so there is no CI workflow.
+`npm run build` and `npm run check` do the same. Node 20 or newer; the generator has no dependencies.
+
+Run `bun install` once after cloning: it installs lefthook, whose pre-commit hook runs the drift check on every commit. The org runs checks locally, so there is no CI workflow.
 
 ## Versions
 

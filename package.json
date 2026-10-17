@@ -2,9 +2,15 @@
   "name": "bunbird-plugins",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
+    "prepare": "lefthook install",
     "build": "node scripts/build.mjs",
     "check": "node scripts/build.mjs --check"
+  },
+  "devDependencies": {
+    "lefthook": "^2.2.1"
   }
 }
