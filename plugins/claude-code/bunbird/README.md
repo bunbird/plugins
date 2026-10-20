@@ -2,7 +2,7 @@
 
 # Bunbird for Claude Code
 
-Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers.
+Build small web apps with an AI agent, preview them live, and publish them in your Bunbird organisation, through one hosted MCP server.
 
 ## Install
 
@@ -11,14 +11,13 @@ Build small web apps with an AI agent, preview them with no account, and publish
 /plugin install bunbird@bunbird
 ```
 
-The plugin carries both connectors, but you must accept them after install. 
-After installing, run `/mcp` and authenticate `bunbird`. The plugin adds both servers, but the person has to accept the connector before its tools appear. `bunbird-build` needs no sign-in.
+The plugin carries the connector, but you must accept it and sign in after install. 
+After installing, run `/mcp` and authenticate `bunbird`. The plugin adds the server, but the person has to accept the connector and sign in before its tools appear.
 
-## Servers
+## Server
 
 | Server | URL | Auth |
 |---|---|---|
-| `bunbird-build` | https://mcp.bunbird.com/build | none |
 | `bunbird` | https://mcp.bunbird.com/mcp | OAuth |
 
-Builds with no account: read the guide, create a draft, build it, preview it. Keeps and publishes for the signed-in person: save, list and resume drafts, publish.
+Every tool works for the signed-in person: the author's guide, drafts in their organisations, previews and publishing.

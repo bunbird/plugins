@@ -3,31 +3,25 @@
     "name": "Bunbird",
     "slug": "bunbird",
     "shortDescription": "Build and publish small web apps",
-    "packageDescription": "Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers.",
-    "longDescription": "Bunbird is an agent-first platform for small web apps made for a group of people, with sign-in, data, files, live updates and background work provided by the platform. An agent reads the author's guide, builds a draft, shows a live preview, and publishes it for the signed-in person. This package connects your agent to Bunbird's two hosted MCP servers and teaches it the flow.",
+    "packageDescription": "Build small web apps with an AI agent, preview them live, and publish them in your Bunbird organisation, through one hosted MCP server.",
+    "longDescription": "Bunbird is an agent-first platform for small web apps made for a group of people, with sign-in, data, files, live updates and background work provided by the platform. An agent reads the author's guide, builds a draft in one of the person's organisations, shows a live preview, and publishes it there. This package connects your agent to Bunbird's hosted MCP server; the server itself carries the guide and the flow.",
     "category": "Developer Tools",
     "keywords": ["bunbird", "mcp", "mcp-server", "web-apps", "hosting", "agent-skill", "ai-agent"],
     "publisher": {
       "name": "Bunbird",
       "url": "https://bunbird.com",
       "org": "https://github.com/bunbird"
-    }
-  },
-  "version": "0.1.0",
-  "domain": "bunbird.com",
-  "servers": {
-    "build": {
-      "name": "bunbird-build",
-      "url": "https://mcp.bunbird.com/build",
-      "auth": "none",
-      "summary": "Builds with no account: read the guide, create a draft, build it, preview it."
     },
-    "account": {
-      "name": "bunbird",
-      "url": "https://mcp.bunbird.com/mcp",
-      "auth": "oauth",
-      "summary": "Keeps and publishes for the signed-in person: save, list and resume drafts, publish."
-    }
+    "skillDescription": "Build, preview and publish small web apps with Bunbird, a hosted platform driven through its MCP server (bunbird). Use when the person wants an app, tool, tracker or form built and hosted, or mentions Bunbird.",
+    "ruleDescription": "Build, preview and publish a small hosted web app with Bunbird. Use when the person wants an app, tool, tracker or form that outlives the chat."
+  },
+  "version": "0.2.0",
+  "domain": "bunbird.com",
+  "server": {
+    "name": "bunbird",
+    "url": "https://mcp.bunbird.com/mcp",
+    "auth": "oauth",
+    "summary": "Every tool works for the signed-in person: the author's guide, drafts in their organisations, previews and publishing."
   },
   "urls": {
     "website": "https://bunbird.com",

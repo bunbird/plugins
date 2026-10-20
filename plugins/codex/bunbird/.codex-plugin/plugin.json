@@ -1,7 +1,7 @@
 {
   "name": "bunbird",
-  "version": "0.1.0",
-  "description": "Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers.",
+  "version": "0.2.0",
+  "description": "Build small web apps with an AI agent, preview them live, and publish them in your Bunbird organisation, through one hosted MCP server.",
   "author": {
     "name": "Bunbird",
     "url": "https://bunbird.com"
@@ -22,7 +22,7 @@
   "interface": {
     "displayName": "Bunbird",
     "shortDescription": "Build and publish small web apps",
-    "longDescription": "Bunbird is an agent-first platform for small web apps made for a group of people, with sign-in, data, files, live updates and background work provided by the platform. An agent reads the author's guide, builds a draft, shows a live preview, and publishes it for the signed-in person. This package connects your agent to Bunbird's two hosted MCP servers and teaches it the flow.",
+    "longDescription": "Bunbird is an agent-first platform for small web apps made for a group of people, with sign-in, data, files, live updates and background work provided by the platform. An agent reads the author's guide, builds a draft in one of the person's organisations, shows a live preview, and publishes it there. This package connects your agent to Bunbird's hosted MCP server; the server itself carries the guide and the flow.",
     "developerName": "Bunbird",
     "category": "Developer Tools",
     "capabilities": [

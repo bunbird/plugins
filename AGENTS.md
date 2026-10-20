@@ -2,35 +2,26 @@
 
 # AGENTS.md
 
-Bunbird is an agent-first platform for small web apps made for a group of people, with sign-in, data, files, live updates and background work provided by the platform. An agent reads the author's guide, builds a draft, shows a live preview, and publishes it for the signed-in person. This package connects your agent to Bunbird's two hosted MCP servers and teaches it the flow.
+Bunbird is an agent-first platform for small web apps made for a group of people, with sign-in, data, files, live updates and background work provided by the platform. An agent reads the author's guide, builds a draft in one of the person's organisations, shows a live preview, and publishes it there. This package connects your agent to Bunbird's hosted MCP server; the server itself carries the guide and the flow.
 
 ## When to use
 
 Use this when the person wants a small web app, tool, tracker or form built and hosted for them or a group: a holiday request board, a shared checklist, a sign-up sheet. It is for apps people keep using, not a one-off snippet to paste into a chat.
 
-## Two servers
+## The server
 
-- **bunbird-build** (https://mcp.bunbird.com/build): no account needed. It holds the author's guide and the draft loop: read the guide, create a draft, build it, preview it.
-- **bunbird** (https://mcp.bunbird.com/mcp): needs the person signed in (OAuth, they approve it in their client). It keeps drafts for another day and publishes them.
+Everything is done through one MCP server, **bunbird** (https://mcp.bunbird.com/mcp). Every tool works for the person signed in: connecting it opens Bunbird in their browser to sign in, once.
 
-A draft's `draftToken` works on both. Tool names below are the current ones; if your tool list shows different names, go by each tool's description and the server's own instructions.
+If bunbird is not connected, or a tool says the connection does not allow something, tell the person to connect it again and approve the sign-in. Do not try to work around it.
 
-## The flow
+## How to work
 
-1. **Read the guide first.** Call the guide tool on bunbird-build with no topic (or read the resource `bunbird://guide`), then the topic of each capability the app uses. The guide matches the SDK the code is compiled with and is the only reference. Do not rely on what you remember of Bunbird.
-2. **Create one draft per app** (`create_draft`). Give it a name and a one-line purpose in the person's words. Keep the `draftToken` it returns and pass it to every later call for this app. A second draft for the same app gives the person a different URL.
-3. **Build** (`build_draft`) with every file of the app, whole, on every call. No diffs. A failed build lists every problem at once: fix all of them before building again. A successful build also reports what publishing would object to, so read that too.
-4. **Preview.** Give the person the preview URL and let them try it. Change what they ask for and build again. `preview_deploy` points the preview back at an earlier build if a change went wrong. If you lost the files, `read_sources` returns the latest build from the token.
-5. **Keep or publish.** Both need the person's account, through bunbird with the same `draftToken`. Offer `save_draft` when the work matters to them (ask what to call it). Publishing is `publish`, with the `deployId` of the build to ship. Publishing ends the draft and its preview URL, so confirm with the person first. The guide's `publish` topic has the details.
-
-If bunbird is not connected, tell the person to connect it and approve the sign-in. Do not try to work around it.
+Follow the server's own instructions, and read its author's guide before writing any file: the overview first, then the topic of each capability the app uses. The guide matches the SDK the code is compiled with and is the only reference. Do not rely on what you remember of Bunbird, nor on this file, for how the tools work.
 
 ## Do not
 
 - Do not invent APIs, spec fields or SDK calls. If the guide does not say it exists, it does not.
-- Do not send partial files or diffs to a build.
-- Do not paste a `draftToken` or any credential into chat, code, or an app's files.
-- Do not create a new draft to fix a failed build. Fix the files and build again with the same token.
+- Do not paste a draft's token or any credential into chat, code, or an app's files.
 - Do not publish without the person asking for it.
 
 ## More
@@ -39,4 +30,4 @@ Agent docs: https://saas.bunbird.com/llms.txt and https://saas.bunbird.com/llms-
 
 ## Connecting
 
-Connect two MCP servers: `bunbird-build` at https://mcp.bunbird.com/build (no account) and `bunbird` at https://mcp.bunbird.com/mcp (OAuth). Per-client plugins are in this repository.
+Connect one MCP server: `bunbird` at https://mcp.bunbird.com/mcp (OAuth). Per-client plugins are in this repository.

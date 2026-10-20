@@ -2,7 +2,7 @@
 
 # Bunbird for Cursor
 
-Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers.
+Build small web apps with an AI agent, preview them live, and publish them in your Bunbird organisation, through one hosted MCP server.
 
 ## Install
 
@@ -10,14 +10,13 @@ Build small web apps with an AI agent, preview them with no account, and publish
 Add this repository as a plugin source in Cursor, then install `bunbird`.
 ```
 
-The plugin carries both connectors, but you must accept them after install. 
-Open Cursor's MCP settings after installing, enable both servers, and sign in to `bunbird` when Cursor asks. `bunbird-build` needs no sign-in.
+The plugin carries the connector, but you must accept it and sign in after install. 
+Open Cursor's MCP settings after installing, enable `bunbird`, and sign in when Cursor asks.
 
-## Servers
+## Server
 
 | Server | URL | Auth |
 |---|---|---|
-| `bunbird-build` | https://mcp.bunbird.com/build | none |
 | `bunbird` | https://mcp.bunbird.com/mcp | OAuth |
 
-Builds with no account: read the guide, create a draft, build it, preview it. Keeps and publishes for the signed-in person: save, list and resume drafts, publish.
+Every tool works for the signed-in person: the author's guide, drafts in their organisations, previews and publishing.
