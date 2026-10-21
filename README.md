@@ -51,7 +51,7 @@ Cursor: add this repository as a plugin source and install `bunbird`.
 
 `npm run build` and `npm run check` do the same. Node 20 or newer; the generator has no dependencies.
 
-Run `bun install` once after cloning: it installs lefthook, whose pre-commit hook runs the drift check on every commit. The org runs checks locally, so there is no CI workflow.
+Run `bun install` once after cloning: it installs lefthook, whose pre-commit hook runs the drift check on every commit. On GitHub, `Plugins: Drift` runs the same check on every pull request and push to `main`, and `CI: Actionlint` and `CI: Zizmor` check the workflows when `.github/` changes.
 
 ## Versions
 
