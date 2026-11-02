@@ -1,17 +1,16 @@
 # Bunbird plugins
 
-Distribution package for [Bunbird](https://bunbird.com): per-client plugins that connect an AI agent to Bunbird's two hosted MCP servers, plus one skill that tells the agent how to use them. There is no server code here.
+Distribution package for [Bunbird](https://bunbird.com): per-client plugins that connect an AI agent to Bunbird's hosted MCP connector, plus one skill that tells the agent how to use it. There is no server code here.
 
-| Server | URL | Auth | For |
+| Connector | URL | Auth | For |
 |---|---|---|---|
-| `bunbird-build` | https://mcp.bunbird.com/build | none | reading the guide, creating, building and previewing drafts |
-| `bunbird` | https://mcp.bunbird.com/mcp | OAuth | the signed-in person: saving, resuming and publishing drafts |
+| `bunbird` | https://mcp.bunbird.com/mcp | OAuth, at connect | everything: the guide, drafts, previews, publishing, changing and sharing apps |
 
-A draft's `draftToken` works on both.
+There is one connector. The client starts the sign-in when it connects, and every tool works for the person who signed in.
 
 ## Status
 
-The repository is private until launch, and `bunbird.com` is not live yet. Installs will fail to connect until the domain and servers are up.
+The MCP is live at `mcp.bunbird.com`. Access is by invitation. The repository is private until launch.
 
 ## Install
 
@@ -36,11 +35,11 @@ gemini extensions install https://github.com/bunbird/plugins
 
 Cursor: add this repository as a plugin source and install `bunbird`.
 
-**Accept the connector after install.** A plugin carries the MCP servers, but the client asks the person to accept them, and `bunbird` also needs a sign-in. Until that is done the skill loads with no tools behind it. Per-client steps are in each plugin's README under `plugins/`.
+**Accept the connector after install.** A plugin carries the MCP server, but the client asks the person to accept it and to sign in. Until that is done the skill loads with no tools behind it. Per-client steps are in each plugin's README under `plugins/`.
 
 ## Layout
 
-- `canonical/` is the only hand-edited source: `facts.json` (names, URLs, servers), `skill.md` (the skill body), `platform-notes/<client>.md` (client-specific extras).
+- `canonical/` is the only hand-edited source: `facts.json` (names, URLs, the connector), `skill.md` (the skill body), `platform-notes/<client>.md` (client-specific extras).
 - `scripts/build.mjs` generates everything else: `plugins/`, the three marketplace catalogs, `gemini-extension.json`, `GEMINI.md`, `AGENTS.md`, root `SKILL.md`, and `.gitattributes`.
 
 ## Editing
@@ -57,7 +56,7 @@ Run `bun install` once after cloning: it installs lefthook, whose pre-commit hoo
 
 Claude Code plugin manifests and marketplace entries carry no `version`. A version pins the plugin and commits then ship nothing to existing installs; without one the commit is the version. Codex and Gemini want a version, which comes from `canonical/facts.json`.
 
-The skill avoids depending on tool names, because clients cache the tool list at install and a rename breaks live installs. Add tools server-side rather than renaming.
+The skill names the tools, so any MCP tool rename in platform must update this repo in the same batch. Clients cache the tool list at install, so add tools server-side rather than renaming.
 
 ## License
 

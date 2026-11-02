@@ -1,6 +1,6 @@
 {
   "name": "bunbird",
-  "description": "Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers.",
+  "description": "Build small web apps with an AI agent, preview them live and publish them to your Bunbird organisation, through one hosted MCP connector. You sign in when you connect.",
   "author": {
     "name": "Bunbird",
     "url": "https://bunbird.com"

@@ -2,7 +2,7 @@
 
 # Bunbird for Codex
 
-Build small web apps with an AI agent, preview them with no account, and publish them from your Bunbird account, through two hosted MCP servers.
+Build small web apps with an AI agent, preview them live and publish them to your Bunbird organisation, through one hosted MCP connector. You sign in when you connect.
 
 ## Install
 
@@ -10,24 +10,22 @@ Build small web apps with an AI agent, preview them with no account, and publish
 codex plugin marketplace add https://github.com/bunbird/plugins.git
 ```
 
-The plugin carries both connectors, but you must accept them after install. 
-Install the plugin, then accept the connectors Codex shows after install and sign in to `bunbird` when asked. `bunbird-build` needs no sign-in.
+The plugin carries the connector, but you must accept it after install. 
+Install the plugin, then approve the sign-in when Codex asks for `bunbird`. If it does not ask, run `codex mcp login bunbird` once.
 
 To connect by hand instead of installing the plugin, add this to `config.toml`:
 
 ```toml
-[mcp_servers.bunbird-build]
-url = "https://mcp.bunbird.com/build"
-
 [mcp_servers.bunbird]
 url = "https://mcp.bunbird.com/mcp"
 ```
 
-## Servers
+Then run `codex mcp login bunbird`.
 
-| Server | URL | Auth |
+## Connector
+
+| Connector | URL | Auth |
 |---|---|---|
-| `bunbird-build` | https://mcp.bunbird.com/build | none |
 | `bunbird` | https://mcp.bunbird.com/mcp | OAuth |
 
-Builds with no account: read the guide, create a draft, build it, preview it. Keeps and publishes for the signed-in person: save, list and resume drafts, publish.
+Everything runs through this one connector: read the guide, create and build drafts, preview, publish, change published apps and manage who opens them. Sign-in happens when you connect.
