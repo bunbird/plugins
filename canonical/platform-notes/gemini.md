@@ -1,1 +1,1 @@
-After installing the extension, restart Gemini CLI, then run `/mcp auth bunbird` to sign in to the account server. `bunbird-build` needs no sign-in.
+After installing the extension, restart Gemini CLI and approve the sign-in when it asks. If it does not, run `/mcp auth bunbird`.

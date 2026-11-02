@@ -1,11 +1,10 @@
-Install the plugin, then accept the connectors Codex shows after install and sign in to `bunbird` when asked. `bunbird-build` needs no sign-in.
+Install the plugin, then approve the sign-in when Codex asks for `bunbird`. If it does not ask, run `codex mcp login bunbird` once.
 
 To connect by hand instead of installing the plugin, add this to `config.toml`:
 
 ```toml
-[mcp_servers.bunbird-build]
-url = "{{buildUrl}}"
-
 [mcp_servers.bunbird]
-url = "{{accountUrl}}"
+url = "{{url}}"
 ```
+
+Then run `codex mcp login bunbird`.

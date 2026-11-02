@@ -12,4 +12,4 @@ One source (`canonical/`), several client packages, built by `scripts/build.mjs`
 
 Shipping a change: edit `canonical/`, run `node scripts/build.mjs` and `node scripts/build.mjs --check`, commit. Claude Code installs pick up the commit on refresh. Bump `version` in `canonical/facts.json` for Codex and Gemini.
 
-Agent docs served by the platform: `llms.txt`, `llms-full.txt` and `.well-known/agent-skills/index.json` on `saas.bunbird.com`. The guide itself is read through the MCP `read_guide` tool.
+Agent docs served by the platform: `llms.txt`, `llms-full.txt` and `.well-known/agent-skills/index.json` on `app.bunbird.com`. The guide itself is read through the MCP `read_guide` tool.

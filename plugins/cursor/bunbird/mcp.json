@@ -1,8 +1,5 @@
 {
   "mcpServers": {
-    "bunbird-build": {
-      "url": "https://mcp.bunbird.com/build"
-    },
     "bunbird": {
       "url": "https://mcp.bunbird.com/mcp"
     }
