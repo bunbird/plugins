@@ -10,7 +10,7 @@ There is one connector. The client starts the sign-in when it connects, and ever
 
 ## Status
 
-The MCP is live at `mcp.bunbird.com`. Access is by invitation. The repository is private until launch.
+The MCP is live at `mcp.bunbird.com`. Access is by invitation: anyone can install the plugin, but signing in needs an invited Bunbird account.
 
 ## Install
 
@@ -58,6 +58,10 @@ Claude Code plugin manifests and marketplace entries carry no `version`. A versi
 
 The skill names the tools, so any MCP tool rename in platform must update this repo in the same batch. Clients cache the tool list at install, so add tools server-side rather than renaming.
 
+## Contributing and security
+
+Changes go through a pull request with a review. Questions and support: support@bunbird.com. Report vulnerabilities privately, as [SECURITY.md](SECURITY.md) says.
+
 ## License
 
-None yet. The team decides before the repository goes public.
+[MIT](LICENSE).

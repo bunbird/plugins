@@ -1,2 +1,2 @@
-# Advisory on the GitHub Free plan: owners are requested, not required.
-/.github/ @cesararroba @StylusFrost
+# Required by the main ruleset: every change needs a review from one of these.
+* @cesararroba @StylusFrost
