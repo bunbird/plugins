@@ -9,6 +9,9 @@ import { fileURLToPath } from "node:url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const read = (p) => readFileSync(join(root, p), "utf8");
 const facts = JSON.parse(read("canonical/facts.json"));
+const bin = (p) => readFileSync(join(root, p));
+const iconPng = bin("canonical/assets/icon-512.png");
+const iconSvg = bin("canonical/assets/icon.svg");
 const skillBody = read("canonical/skill.md").trimEnd();
 const note = (client) =>
   existsSync(join(root, `canonical/platform-notes/${client}.md`))
@@ -39,8 +42,8 @@ const author = { name: product.publisher.name, url: product.publisher.url };
 
 const skillDescription =
   "Build, preview and publish small web apps with Bunbird, a hosted platform driven through one MCP connector (bunbird). Use when the person wants an app, tool, tracker or form built and hosted, or mentions Bunbird.";
-const skillFile = `---
-name: ${product.slug}
+const skillFileAs = (name) => `---
+name: ${name}
 description: ${skillDescription}
 ---
 
@@ -50,6 +53,7 @@ ${BANNER}
 
 ${fill(skillBody)}
 `;
+const skillFile = skillFileAs(product.slug);
 
 const ruleFile = `---
 description: Build, preview and publish a small hosted web app with Bunbird. Use when the person wants an app, tool, tracker or form that outlives the chat.
@@ -117,7 +121,9 @@ const put = (p, c) => files.set(p, c);
     homepage: urls.website,
     repository: urls.repository,
     keywords: product.keywords,
+    icon: "./assets/icon.png",
   }));
+  put(`${base}/assets/icon.png`, iconPng);
   put(`${base}/.mcp.json`, json({
     mcpServers: {
       [server.name]: { type: "http", url: server.url },
@@ -149,8 +155,11 @@ const put = (p, c) => files.set(p, c);
       capabilities: ["Interactive", "Write"],
       websiteURL: urls.website,
       defaultPrompt: facts.defaultPrompts,
+      composerIcon: "./assets/icon.png",
+      logo: "./assets/icon.png",
     },
   }));
+  put(`${base}/assets/icon.png`, iconPng);
   put(`${base}/.mcp.json`, json({
     mcpServers: {
       [server.name]: { url: server.url },
@@ -168,7 +177,9 @@ const put = (p, c) => files.set(p, c);
     description: product.packageDescription,
     author,
     keywords: product.keywords,
+    logo: "assets/icon.svg",
   }));
+  put(`${base}/assets/icon.svg`, iconSvg);
   put(`${base}/mcp.json`, json({
     mcpServers: {
       [server.name]: { url: server.url },
@@ -177,6 +188,73 @@ const put = (p, c) => files.set(p, c);
   put(`${base}/rules/${product.slug}.mdc`, ruleFile);
   put(`${base}/skills/${product.slug}/SKILL.md`, skillFile);
   put(`${base}/README.md`, pluginReadme("cursor"));
+}
+
+// OpenAI directory submission package (Agent Plugins format). Zip the folder contents:
+//   cd plugins/openai/bunbird && zip -r ../bunbird-openai.zip .
+// Refs: https://developers.openai.com/plugins/deploy/submission
+//       https://developers.openai.com/plugins/build/plugins
+{
+  const base = "plugins/openai/bunbird";
+  const limit = (label, v, max) => {
+    if (v.length > max) throw new Error(`openai ${label} is ${v.length} chars, max ${max}`);
+    return v;
+  };
+  const review = JSON.parse(read("canonical/openai-review.json"));
+  const tc = review.test_cases ?? {};
+  const hasCases = (tc.positive?.length ?? 0) + (tc.negative?.length ?? 0) > 0;
+  if (hasCases && (tc.positive.length !== 5 || tc.negative.length !== 3))
+    throw new Error("openai review needs exactly 5 positive and 3 negative test cases");
+  const reviewOut = {};
+  if (hasCases) reviewOut.test_cases = { positive: tc.positive, negative: tc.negative };
+  if (review.demo_recording_url) reviewOut.demo_recording_url = review.demo_recording_url;
+  reviewOut.commerce = facts.openai.commerce;
+  reviewOut.commerce_description = facts.openai.commerceDescription;
+  put(`${base}/plugin.json`, json({
+    $schema: "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+    name: product.slug,
+    version: facts.version,
+    description: product.packageDescription,
+    author,
+    homepage: urls.website,
+    repository: urls.repository,
+    license: "MIT",
+    keywords: product.keywords,
+    extensions: {
+      "com.openai": {
+        interface: {
+          displayName: limit("displayName", product.name, 30),
+          shortDescription: limit("shortDescription", product.shortDescription, 30),
+          longDescription: limit("longDescription", product.longDescription, 4000),
+          developerName: limit("developerName", product.publisher.name, 80),
+          category: product.category,
+          capabilities: facts.openai.capabilities,
+          websiteURL: urls.website,
+          supportURL: urls.support,
+          privacyPolicyURL: urls.privacy,
+          termsOfServiceURL: urls.terms,
+          defaultPrompt: facts.defaultPrompts.map((p) => limit("defaultPrompt", p, 128)),
+          composerIcon: "./assets/icon.png",
+          logo: "./assets/icon.png",
+        },
+        onboardingSkill: "./skills/get-started/SKILL.md",
+        review: reviewOut,
+        publication: { release_notes: facts.openai.releaseNotes },
+      },
+    },
+  }));
+  put(`${base}/mcp.json`, json({
+    $schema: "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+    mcpServers: {
+      [server.name]: {
+        type: "streamable-http",
+        url: server.url,
+        extensions: { "com.openai": { auth: { type: "oauth", client: { mode: "dcr" } } } },
+      },
+    },
+  }));
+  put(`${base}/skills/get-started/SKILL.md`, skillFileAs("get-started"));
+  put(`${base}/assets/icon.png`, iconPng);
 }
 
 // Marketplaces. Plugin versions live in plugin manifests only, never here.
@@ -260,7 +338,7 @@ if (process.argv.includes("--check")) {
   for (const [p, c] of files) {
     const full = join(root, p);
     if (!existsSync(full)) problems.push(`missing: ${p}`);
-    else if (readFileSync(full, "utf8") !== c) problems.push(`drift: ${p}`);
+    else if (!readFileSync(full).equals(Buffer.from(c))) problems.push(`drift: ${p}`);
   }
   for (const p of onDisk()) if (!files.has(p)) problems.push(`extra: ${p}`);
   if (problems.length) {

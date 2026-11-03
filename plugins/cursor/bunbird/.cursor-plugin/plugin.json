@@ -13,5 +13,6 @@
     "hosting",
     "agent-skill",
     "ai-agent"
-  ]
+  ],
+  "logo": "assets/icon.svg"
 }
