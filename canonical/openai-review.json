@@ -1,0 +1,8 @@
+{
+  "_note": "PLACEHOLDER. Keys starting with _ are dropped by scripts/build.mjs. Fill test_cases (exactly 5 positive, 3 negative; positive need description, prompt, tools_triggered, expected_behavior; negative need description, prompt) and demo_recording_url. While test_cases is empty the generated manifest omits review.test_cases (OpenAI keeps any saved cases). NEVER put reviewer credentials here: they go in the dashboard Review details form.",
+  "test_cases": {
+    "positive": [],
+    "negative": []
+  },
+  "demo_recording_url": ""
+}
