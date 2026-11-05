@@ -79,7 +79,7 @@ ${extra ? `\n## Connecting\n\n${fill(extra)}\n` : ""}`;
 
 const clients = {
   "claude-code": { label: "Claude Code", install: ["/plugin marketplace add bunbird/plugins", "/plugin install bunbird@bunbird"] },
-  codex: { label: "Codex", install: [`codex plugin marketplace add ${urls.repository}.git`] },
+  codex: { label: "Codex", install: ["codex plugin marketplace add bunbird/plugins"] },
   cursor: { label: "Cursor", install: ["Add this repository as a plugin source in Cursor, then install `bunbird`."] },
 };
 const pluginReadme = (id) => {
@@ -120,6 +120,7 @@ const put = (p, c) => files.set(p, c);
     author,
     homepage: urls.website,
     repository: urls.repository,
+    privacyPolicyUrl: urls.privacy,
     keywords: product.keywords,
     icon: "./assets/icon.png",
   }));

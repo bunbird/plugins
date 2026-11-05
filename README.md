@@ -24,8 +24,10 @@ Claude Code:
 Codex:
 
 ```
-codex plugin marketplace add https://github.com/bunbird/plugins.git
+codex plugin marketplace add bunbird/plugins
 ```
+
+Then open Codex, run `/plugins` and install Bunbird.
 
 Gemini CLI:
 
