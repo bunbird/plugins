@@ -80,7 +80,7 @@ ${extra ? `\n## Connecting\n\n${fill(extra)}\n` : ""}`;
 const clients = {
   "claude-code": { label: "Claude Code", install: ["/plugin marketplace add bunbird/plugins", "/plugin install bunbird@bunbird"] },
   codex: { label: "Codex", install: ["codex plugin marketplace add bunbird/plugins"] },
-  cursor: { label: "Cursor", install: ["Add this repository as a plugin source in Cursor, then install `bunbird`."] },
+  cursor: { label: "Cursor", install: ["git clone https://github.com/bunbird/plugins.git", "mkdir -p ~/.cursor/plugins/local", "cp -R plugins/plugins/cursor/bunbird ~/.cursor/plugins/local/bunbird"] },
 };
 const pluginReadme = (id) => {
   const c = clients[id];

@@ -7,11 +7,15 @@ Build small web apps with an AI agent, preview them live and publish them to you
 ## Install
 
 ```
-Add this repository as a plugin source in Cursor, then install `bunbird`.
+git clone https://github.com/bunbird/plugins.git
+mkdir -p ~/.cursor/plugins/local
+cp -R plugins/plugins/cursor/bunbird ~/.cursor/plugins/local/bunbird
 ```
 
 The plugin carries the connector, but you must accept it after install. 
-Enable the `bunbird` server in Cursor's MCP settings after installing, and approve the sign-in when Cursor asks.
+Reload Cursor (`Developer: Reload Window`), open **Customize**, and press **Authenticate** beside `bunbird` to sign in.
+
+For the connector alone, without the skill and the rule, press **Add Bunbird to Cursor** at https://app.bunbird.com/connect, confirm in Cursor, then press **Authenticate**.
 
 ## Connector
 
