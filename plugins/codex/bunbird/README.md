@@ -7,11 +7,11 @@ Build small web apps with an AI agent, preview them live and publish them to you
 ## Install
 
 ```
-codex plugin marketplace add https://github.com/bunbird/plugins.git
+codex plugin marketplace add bunbird/plugins
 ```
 
 The plugin carries the connector, but you must accept it after install. 
-Install the plugin, then approve the sign-in when Codex asks for `bunbird`. If it does not ask, run `codex mcp login bunbird` once.
+Adding the marketplace does not install the plugin: open Codex, run `/plugins` and install Bunbird. Then approve the sign-in when Codex asks for `bunbird`. If it does not ask, run `codex mcp login bunbird` once.
 
 To connect by hand instead of installing the plugin, add this to `config.toml`:
 
