@@ -24,8 +24,10 @@ Claude Code:
 Codex:
 
 ```
-codex plugin marketplace add https://github.com/bunbird/plugins.git
+codex plugin marketplace add bunbird/plugins
 ```
+
+Then open Codex, run `/plugins` and install Bunbird.
 
 Gemini CLI:
 
@@ -33,7 +35,7 @@ Gemini CLI:
 gemini extensions install https://github.com/bunbird/plugins
 ```
 
-Cursor: add this repository as a plugin source and install `bunbird`.
+Cursor: press **Add Bunbird to Cursor** at https://app.bunbird.com/connect for the connector, or copy `plugins/cursor/bunbird` to `~/.cursor/plugins/local/bunbird` for the connector, skill and rule. Then press **Authenticate** in **Customize**.
 
 **Accept the connector after install.** A plugin carries the MCP server, but the client asks the person to accept it and to sign in. Until that is done the skill loads with no tools behind it. Per-client steps are in each plugin's README under `plugins/`.
 

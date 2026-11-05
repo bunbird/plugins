@@ -7,6 +7,7 @@
   },
   "homepage": "https://bunbird.com",
   "repository": "https://github.com/bunbird/plugins",
+  "privacyPolicyUrl": "https://bunbird.com/privacy/",
   "keywords": [
     "bunbird",
     "mcp",
