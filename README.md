@@ -35,6 +35,15 @@ Gemini CLI:
 gemini extensions install https://github.com/bunbird/plugins
 ```
 
+Antigravity:
+
+```
+git clone https://github.com/bunbird/plugins.git
+agy plugin install plugins/plugins/antigravity/bunbird
+```
+
+Then sign in: in the Antigravity app, open **Customizations**, go to **Installed** and press **Authenticate** beside `bunbird`.
+
 Cursor: press **Add Bunbird to Cursor** at https://app.bunbird.com/connect for the connector, or copy `plugins/cursor/bunbird` to `~/.cursor/plugins/local/bunbird` for the connector, skill and rule. Then press **Authenticate** in **Customize**.
 
 **Accept the connector after install.** A plugin carries the MCP server, but the client asks the person to accept it and to sign in. Until that is done the skill loads with no tools behind it. Per-client steps are in each plugin's README under `plugins/`.
@@ -56,7 +65,7 @@ Run `bun install` once after cloning: it installs lefthook, whose pre-commit hoo
 
 ## Versions
 
-Claude Code plugin manifests and marketplace entries carry no `version`. A version pins the plugin and commits then ship nothing to existing installs; without one the commit is the version. Codex and Gemini want a version, which comes from `canonical/facts.json`.
+Claude Code plugin manifests and marketplace entries carry no `version`. A version pins the plugin and commits then ship nothing to existing installs; without one the commit is the version. Codex, Gemini and Antigravity want a version, which comes from `canonical/facts.json`.
 
 The skill names the tools, so any MCP tool rename in platform must update this repo in the same batch. Clients cache the tool list at install, so add tools server-side rather than renaming.
 

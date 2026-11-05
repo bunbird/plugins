@@ -1,0 +1,19 @@
+{
+  "$schema": "https://antigravity.google/schemas/v1/plugin.json",
+  "name": "bunbird",
+  "displayName": "Bunbird",
+  "description": "Build small web apps with an AI agent, preview them live and publish them to your Bunbird organisation through one hosted MCP connector.",
+  "version": "0.2.0",
+  "logo": "assets/icon.png",
+  "suggestedPrompts": [
+    "Build me a small web app with Bunbird.",
+    "Show me a live preview of this app.",
+    "Publish my Bunbird draft."
+  ],
+  "author": {
+    "name": "Bunbird",
+    "url": "https://bunbird.com"
+  },
+  "homepage": "https://bunbird.com",
+  "license": "MIT"
+}

@@ -4,6 +4,7 @@
     "slug": "bunbird",
     "shortDescription": "Build and publish web apps",
     "packageDescription": "Build small web apps with an AI agent, preview them live and publish them to your Bunbird organisation, through one hosted MCP connector. You sign in when you connect.",
+    "marketplaceDescription": "Build small web apps with an AI agent, preview them live and publish them to your Bunbird organisation through one hosted MCP connector.",
     "longDescription": "Bunbird is an agent-first platform for small web apps made for a group of people, with sign-in, data, files, live updates and background work provided by the platform. An agent reads the author's guide, builds a draft in one of your organisations, shows a live preview, and publishes it when you say so. Access is by invitation. Apps belong to an organisation, and people outside it can be invited into an app as guests. This package connects your agent to Bunbird's hosted MCP connector, which asks you to sign in when you connect, and teaches it the flow.",
     "category": "Developer Tools",
     "keywords": [

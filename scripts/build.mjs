@@ -80,6 +80,7 @@ ${extra ? `\n## Connecting\n\n${fill(extra)}\n` : ""}`;
 const clients = {
   "claude-code": { label: "Claude Code", install: ["/plugin marketplace add bunbird/plugins", "/plugin install bunbird@bunbird"] },
   codex: { label: "Codex", install: ["codex plugin marketplace add bunbird/plugins"] },
+  antigravity: { label: "Antigravity", install: ["git clone https://github.com/bunbird/plugins.git", "agy plugin install plugins/plugins/antigravity/bunbird"] },
   cursor: { label: "Cursor", install: ["git clone https://github.com/bunbird/plugins.git", "mkdir -p ~/.cursor/plugins/local", "cp -R plugins/plugins/cursor/bunbird ~/.cursor/plugins/local/bunbird"] },
 };
 const pluginReadme = (id) => {
@@ -256,6 +257,34 @@ const put = (p, c) => files.set(p, c);
   }));
   put(`${base}/skills/get-started/SKILL.md`, skillFileAs("get-started"));
   put(`${base}/assets/icon.png`, iconPng);
+}
+
+// Antigravity: agy plugin validate --strict rejects the repository root, whose AGENTS.md and GEMINI.md it never loads.
+{
+  const d = product.marketplaceDescription;
+  if (d.length < 120 || d.length > 160)
+    throw new Error(`antigravity description is ${d.length} chars, recommended 120-160`);
+  const base = `plugins/antigravity/${product.slug}`;
+  put(`${base}/plugin.json`, json({
+    $schema: "https://antigravity.google/schemas/v1/plugin.json",
+    name: product.slug,
+    displayName: product.name,
+    description: d,
+    version: facts.version,
+    logo: "assets/icon.png",
+    suggestedPrompts: facts.defaultPrompts.slice(0, 3),
+    author,
+    homepage: urls.website,
+    license: "MIT",
+  }));
+  put(`${base}/assets/icon.png`, iconPng);
+  put(`${base}/mcp_config.json`, json({
+    mcpServers: {
+      [server.name]: { serverUrl: server.url },
+    },
+  }));
+  put(`${base}/skills/${product.slug}/SKILL.md`, skillFile);
+  put(`${base}/README.md`, pluginReadme("antigravity"));
 }
 
 // Marketplaces. Plugin versions live in plugin manifests only, never here.
