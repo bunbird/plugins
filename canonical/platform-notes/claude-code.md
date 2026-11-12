@@ -1,1 +1,3 @@
-Approve the sign-in when Claude Code asks. The plugin adds the `bunbird` connector, and the person has to accept it before its tools appear; `/mcp` shows its status.
+Then run `/mcp` in Claude Code, choose `bunbird` and sign in. Until you do, `/mcp` lists it as needing authentication and the skill has no tools behind it.
+
+GitHub Copilot CLI installs the same plugin with `copilot plugin marketplace add bunbird/plugins` and `copilot plugin install bunbird@bunbird`; sign in with `/mcp auth bunbird`. VS Code with GitHub Copilot lists it under Agent Plugins too, but does not sign in from it: in VS Code, add the connector with the Add Bunbird to VS Code link at https://app.bunbird.com/connect. Do not disable the plugin in VS Code if you use Copilot CLI: VS Code and Copilot CLI share it, so disabling it in one disables it in both, and Copilot CLI then needs `copilot plugin install bunbird@bunbird` again.

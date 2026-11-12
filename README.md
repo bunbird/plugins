@@ -25,15 +25,27 @@ Codex:
 
 ```
 codex plugin marketplace add bunbird/plugins
+codex plugin add bunbird@bunbird
 ```
 
-Then open Codex, run `/plugins` and install Bunbird.
+Or, after adding the marketplace, open Codex, run `/plugins` and install Bunbird.
+
+GitHub Copilot CLI reads the same marketplace as Claude Code:
+
+```
+copilot plugin marketplace add bunbird/plugins
+copilot plugin install bunbird@bunbird
+```
+
+Then run `/mcp auth bunbird` inside Copilot if it asks you to sign in.
 
 Gemini CLI:
 
 ```
 gemini extensions install https://github.com/bunbird/plugins
 ```
+
+Gemini CLI signs in with a paid Google AI plan, a Google Workspace account or a Gemini API key. Free Google accounts now use Antigravity.
 
 Antigravity:
 
@@ -42,7 +54,7 @@ git clone https://github.com/bunbird/plugins.git
 agy plugin install plugins/plugins/antigravity/bunbird
 ```
 
-Then sign in: in the Antigravity app, open **Customizations**, go to **Installed** and press **Authenticate** beside `bunbird`.
+Then sign in: in the Antigravity app, open **Customizations**, go to **Installed**, then **MCP Servers**, press **Authenticate** beside `bunbird`, sign in in the browser and paste the authorization code into **Enter authorization code**.
 
 Cursor: press **Add Bunbird to Cursor** at https://app.bunbird.com/connect for the connector, or copy `plugins/cursor/bunbird` to `~/.cursor/plugins/local/bunbird` for the connector, skill and rule. Then press **Authenticate** in **Customize**.
 

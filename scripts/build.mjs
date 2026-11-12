@@ -78,8 +78,8 @@ ${fill(skillBody)}
 ${extra ? `\n## Connecting\n\n${fill(extra)}\n` : ""}`;
 
 const clients = {
-  "claude-code": { label: "Claude Code", install: ["/plugin marketplace add bunbird/plugins", "/plugin install bunbird@bunbird"] },
-  codex: { label: "Codex", install: ["codex plugin marketplace add bunbird/plugins"] },
+  "claude-code": { label: "Claude Code and GitHub Copilot", install: ["/plugin marketplace add bunbird/plugins", "/plugin install bunbird@bunbird"] },
+  codex: { label: "Codex", install: ["codex plugin marketplace add bunbird/plugins", "codex plugin add bunbird@bunbird"] },
   antigravity: { label: "Antigravity", install: ["git clone https://github.com/bunbird/plugins.git", "agy plugin install plugins/plugins/antigravity/bunbird"] },
   cursor: { label: "Cursor", install: ["git clone https://github.com/bunbird/plugins.git", "mkdir -p ~/.cursor/plugins/local", "cp -R plugins/plugins/cursor/bunbird ~/.cursor/plugins/local/bunbird"] },
 };
@@ -98,7 +98,8 @@ ${product.packageDescription}
 ${c.install.join("\n")}
 \`\`\`
 
-The plugin carries the connector, but you must accept it after install. ${n ? "\n" + fill(n) + "\n" : ""}
+The plugin carries the connector, but you must accept it after install.
+${n ? "\n" + fill(n) + "\n" : ""}
 ## Connector
 
 | Connector | URL | Auth |
