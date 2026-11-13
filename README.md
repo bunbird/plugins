@@ -14,6 +14,8 @@ The MCP is live at `mcp.bunbird.com`. Access is by invitation: anyone can instal
 
 ## Install
 
+Claude (web, desktop and phone), ChatGPT, Grok and VS Code need no plugin: add the connector from https://app.bunbird.com/connect, which has the steps for each one, checked by hand. The plugins below are for the clients that load them.
+
 Claude Code:
 
 ```
