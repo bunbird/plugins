@@ -11,10 +11,11 @@ git clone https://github.com/bunbird/plugins.git
 agy plugin install plugins/plugins/antigravity/bunbird
 ```
 
-The plugin carries the connector, but you must accept it after install. 
-Then sign in: in the Antigravity app, open **Customizations**, go to **Installed** and press **Authenticate** beside `bunbird`.
+The plugin carries the connector, but you must accept it after install.
 
-To connect by hand instead, add the connector to `~/.gemini/config/mcp_config.json`, restart Antigravity, and sign in when it asks:
+Then sign in: in the Antigravity app, open **Customizations**, go to **Installed**, then **MCP Servers**, and press **Authenticate** beside `bunbird`. Sign in to Bunbird in the browser, copy the authorization code it gives you, paste it into **Enter authorization code** and press **Submit**.
+
+To connect by hand instead, add the connector to `~/.gemini/config/mcp_config.json` and sign in the same way:
 
 ```json
 {"mcpServers":{"bunbird":{"serverUrl":"https://mcp.bunbird.com/mcp"}}}
