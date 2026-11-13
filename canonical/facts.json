@@ -24,6 +24,10 @@
   },
   "version": "0.2.1",
   "domain": "bunbird.com",
+  "registry": {
+    "name": "com.bunbird/bunbird",
+    "description": "Build, preview and publish small web apps for a group of people from your AI assistant."
+  },
   "servers": {
     "bunbird": {
       "name": "bunbird",
