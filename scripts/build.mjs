@@ -335,6 +335,21 @@ put("gemini-extension.json", json({
 }));
 put("GEMINI.md", contextFile(`${product.name} (Gemini CLI)`, note("gemini")));
 
+// The official MCP Registry (registry.modelcontextprotocol.io), which VS Code's server gallery reads.
+// The name's domain is proved by https://bunbird.com/.well-known/mcp-registry-auth; OAuth needs no field.
+const registry = facts.registry;
+if (registry.description.length > 100) throw new Error(`registry.description is ${registry.description.length} characters; the registry allows 100`);
+put("server.json", json({
+  $schema: "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  name: registry.name,
+  title: product.name,
+  description: registry.description,
+  version: facts.version,
+  websiteUrl: facts.urls.website,
+  repository: { url: facts.urls.repository, source: "github" },
+  remotes: [{ type: "streamable-http", url: server.url }],
+}));
+
 // Root skill and agent instructions for any tool that reads them.
 put("SKILL.md", skillFile);
 put("AGENTS.md", contextFile("AGENTS.md", `Connect the MCP server \`${server.name}\` at ${server.url} (OAuth, you sign in when you connect). Per-client plugins are in this repository.`));

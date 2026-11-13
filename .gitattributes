@@ -4,6 +4,7 @@ plugins/** linguist-generated=true
 .claude-plugin/marketplace.json linguist-generated=true
 .cursor-plugin/marketplace.json linguist-generated=true
 gemini-extension.json linguist-generated=true
+server.json linguist-generated=true
 SKILL.md linguist-generated=true
 AGENTS.md linguist-generated=true
 GEMINI.md linguist-generated=true
