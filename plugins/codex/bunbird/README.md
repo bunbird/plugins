@@ -8,12 +8,14 @@ Build small web apps with an AI agent, preview them live and publish them to you
 
 ```
 codex plugin marketplace add bunbird/plugins
+codex plugin add bunbird@bunbird
 ```
 
-The plugin carries the connector, but you must accept it after install. 
-Adding the marketplace does not install the plugin: open Codex, run `/plugins` and install Bunbird. Then approve the sign-in when Codex asks for `bunbird`. If it does not ask, run `codex mcp login bunbird` once.
+The plugin carries the connector, but you must accept it after install.
 
-To connect by hand instead of installing the plugin, add this to `config.toml`:
+Adding the marketplace alone does not install the plugin: `codex plugin add bunbird@bunbird` does, or open Codex, run `/plugins` and install Bunbird. Then approve the sign-in when Codex asks for `bunbird`. If it does not ask, run `codex mcp login bunbird` once.
+
+The Codex IDE extension does not load plugins. To connect it, or to connect by hand instead of installing the plugin, add this to `config.toml`:
 
 ```toml
 [mcp_servers.bunbird]

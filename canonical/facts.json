@@ -22,7 +22,7 @@
       "org": "https://github.com/bunbird"
     }
   },
-  "version": "0.2.0",
+  "version": "0.2.1",
   "domain": "bunbird.com",
   "registry": {
     "name": "com.bunbird/bunbird",

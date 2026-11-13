@@ -1,6 +1,6 @@
 {
   "name": "bunbird",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Build small web apps with an AI agent, preview them live and publish them to your Bunbird organisation, through one hosted MCP connector. You sign in when you connect.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
