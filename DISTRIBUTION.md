@@ -39,6 +39,19 @@ Before submitting: verify the domain by serving the challenge token at `https://
 
 Validate before submitting to the Marketplace: `agy plugin validate --strict plugins/antigravity/bunbird`. Submit through https://forms.gle/2EX5RFYPoJe1UgxR9.
 
+## MCP Registry
+
+`server.json` at the root is the entry for the official MCP Registry (https://registry.modelcontextprotocol.io), which VS Code's server gallery reads. It is generated from `canonical/facts.json` (`registry.name`, `registry.description`, at most 100 characters, and `version`). The name `com.bunbird/bunbird` is proved by the public key served at https://bunbird.com/.well-known/mcp-registry-auth (landing repository); the private key is not in any repository.
+
+A published version cannot change: bump `version` in `canonical/facts.json`, rebuild, then from this directory:
+
+```
+mcp-publisher login http --domain bunbird.com --private-key "$(cat <path to private-key.hex>)"
+mcp-publisher publish
+```
+
+OAuth needs no field: clients find the sign-in from the server itself.
+
 ## Icons
 
 Source art is `canonical/assets/` (`icon-512.png` and `icon.svg`, copied unaltered from `bunbird/media` `favicon/icon-512.png` and `favicon/favicon.svg`). Where a client documents a field, the generator copies it into the package and references it:
