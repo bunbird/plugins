@@ -41,7 +41,7 @@ Validate before submitting to the Marketplace: `agy plugin validate --strict plu
 
 ## MCP Registry
 
-`server.json` at the root is the entry for the official MCP Registry (https://registry.modelcontextprotocol.io), which VS Code's server gallery reads. It is generated from `canonical/facts.json` (`registry.name`, `registry.description`, at most 100 characters, and `version`). The name `com.bunbird/bunbird` is proved by the public key served at https://bunbird.com/.well-known/mcp-registry-auth (landing repository); the private key is not in any repository.
+`server.json` at the root is the entry for the official MCP Registry (https://registry.modelcontextprotocol.io), which other registries and clients copy from. It is generated from `canonical/facts.json` (`registry.name`, `registry.description`, at most 100 characters, `registry.icons`, https URLs served by the landing, and `version`). VS Code's server gallery reads GitHub's MCP Registry, which is curated: inclusion is requested at partnerships@github.com. The name `com.bunbird/bunbird` is proved by the public key served at https://bunbird.com/.well-known/mcp-registry-auth (landing repository); the private key is not in any repository.
 
 A published version cannot change: bump `version` in `canonical/facts.json`, rebuild, then from this directory:
 
@@ -49,6 +49,8 @@ A published version cannot change: bump `version` in `canonical/facts.json`, reb
 mcp-publisher login http --domain bunbird.com --private-key "$(cat <path to private-key.hex>)"
 mcp-publisher publish
 ```
+
+`--private-key` puts the key in the process arguments, visible to `ps` while the command runs. mcp-publisher 1.8.9 has no other way; once a release ships `--private-key-file` (or the `MCP_PRIVATE_KEY` variable), use that instead.
 
 OAuth needs no field: clients find the sign-in from the server itself.
 
