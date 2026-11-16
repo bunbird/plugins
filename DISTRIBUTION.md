@@ -33,6 +33,10 @@ Review content lives in `canonical/openai-review.json`: exactly 5 positive and 3
 
 Before submitting: verify the domain by serving the challenge token at `https://mcp.bunbird.com/.well-known/openai-apps-challenge`, register OpenAI's OAuth callback with the platform (DCR is used), and confirm `category` against the dashboard's category list.
 
+## Cursor Marketplace
+
+`plugins/cursor/bunbird` is the package, listed in `.cursor-plugin/marketplace.json`. Submit the repository at https://cursor.com/marketplace/publish. Every plugin and every update is reviewed by hand, plugins must be open source and free to users (Marketplace Publisher Terms 3.1), and the submission stays with the Cursor account that sends it, so send it from a company account. Community MCP servers are also listed separately on https://cursor.directory.
+
 ## Antigravity
 
 `plugins/antigravity/bunbird` is the package. It cannot be the repository root: `agy plugin validate --strict`, which the Marketplace requires, warns that the root's `AGENTS.md` and `GEMINI.md` are never loaded. Subfolder installs from a GitHub URL are not documented, so install from a clone: `agy plugin install plugins/antigravity/bunbird`.

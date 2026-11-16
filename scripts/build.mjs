@@ -177,8 +177,12 @@ const put = (p, c) => files.set(p, c);
   const base = "plugins/cursor/bunbird";
   put(`${base}/.cursor-plugin/plugin.json`, json({
     name: product.slug,
+    version: facts.version,
     description: product.packageDescription,
     author,
+    homepage: facts.urls.website,
+    repository: facts.urls.repository,
+    license: "MIT",
     keywords: product.keywords,
     logo: "assets/icon.svg",
   }));
