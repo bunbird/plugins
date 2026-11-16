@@ -3,12 +3,28 @@
   "name": "com.bunbird/bunbird",
   "title": "Bunbird",
   "description": "Build, preview and publish small web apps for a group of people from your AI assistant.",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "websiteUrl": "https://bunbird.com",
   "repository": {
     "url": "https://github.com/bunbird/plugins",
     "source": "github"
   },
+  "icons": [
+    {
+      "src": "https://bunbird.com/icon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    },
+    {
+      "src": "https://bunbird.com/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    }
+  ],
   "remotes": [
     {
       "type": "streamable-http",

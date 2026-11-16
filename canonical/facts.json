@@ -22,11 +22,15 @@
       "org": "https://github.com/bunbird"
     }
   },
-  "version": "0.2.1",
+  "version": "0.2.2",
   "domain": "bunbird.com",
   "registry": {
     "name": "com.bunbird/bunbird",
-    "description": "Build, preview and publish small web apps for a group of people from your AI assistant."
+    "description": "Build, preview and publish small web apps for a group of people from your AI assistant.",
+    "icons": [
+      { "src": "https://bunbird.com/icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] },
+      { "src": "https://bunbird.com/favicon.svg", "mimeType": "image/svg+xml", "sizes": ["any"] }
+    ]
   },
   "servers": {
     "bunbird": {
