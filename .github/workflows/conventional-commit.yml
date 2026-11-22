@@ -1,0 +1,39 @@
+name: "Tools: Conventional Commit"
+
+# The repo squash-merges with the pull request title as the commit subject, so the title is what gets checked.
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  conventional-commit:
+    name: Check pull request title
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Check the title follows Conventional Commits
+        env:
+          TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          pattern='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9][a-z0-9._/, -]*\))?!?: [^[:space:]].*$'
+          if [[ "$TITLE" =~ $pattern ]]; then
+            echo "OK: $TITLE"
+          else
+            echo "::error title=Pull request title::The title becomes the squash commit subject and must be 'type(scope): description'. Got: $TITLE"
+            echo "Types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert."
+            echo "The scope is optional, '!' after it marks a breaking change, e.g. 'feat(saas-web): a filter for organizations' or 'fix!: drop the old token'."
+            exit 1
+          fi
