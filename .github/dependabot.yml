@@ -12,3 +12,6 @@ updates:
       timezone: Europe/Madrid
     cooldown:
       default-days: 7
+    commit-message:
+      prefix: chore
+      include: scope
